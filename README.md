@@ -12,3 +12,8 @@ If you encrypt (sign) with your private key, anyone with your public key can ver
 Slower than symmetric, so usually used just to exchange a symmetric key, then symmetric crypto takes over for the actual bulk data. This hybrid approach is literally what TLS/HTTPS does.
 
 Examples: RSA, ECC (Elliptic Curve Cryptography), Diffie-Hellman
+## Hashing
+Not encryption at all — it's a one-way fingerprint function. You put data in, you get a fixed-length string out, and you can never reverse it back to the original. Same input always gives same output; even a 1-bit change gives a totally different hash (avalanche effect).
+
+Used for: integrity checking, password storage, digital signatures (you hash the message, then sign the hash — signing the whole message directly would be slow).
+Examples: SHA-256, SHA-3, (MD5/SHA-1 are broken, avoid them)
