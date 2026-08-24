@@ -91,3 +91,12 @@ A free, automated CA. It verifies domain ownership (not deep identity, just "you
 ### Blind trust vs Zero trust
 - Blind trust model: once you're inside the network (or once a cert is validated once), you're trusted broadly — like a castle-and-moat: strong perimeter, but if someone gets in, they can move around freely.
 - Zero trust model: "never trust, always verify" — every request, every device, every user is re-authenticated and re-authorized continuously, regardless of whether they're "inside" the network already. No implicit trust just because you're on the same network segment. Modern enterprise security has been shifting hard toward this model.
+## 8. X.509 Certificate
+This is the standard format for digital certificates used in PKI (what powers HTTPS). An X.509 certificate contains:
+
+- The subject's identity (domain name, organization)
+- The subject's public key
+- The issuing CA's identity
+- Validity period (start/expiry dates)
+- The CA's digital signature over all of the above (this is what makes it verifiable/tamper-proof — ties back to section 2)
+- Serial number, extensions (usage restrictions, alternate domain names, etc.)
