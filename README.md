@@ -88,4 +88,6 @@ The whole ecosystem of hardware, software, policies, and procedures needed to cr
 A trusted third party that verifies someone's identity and then issues them a digital certificate binding their identity to their public key, signed with the CA's own private key. Your browser trusts a pre-installed list of "root CAs" — everything else builds trust from there in a chain.
 ### Let's Encrypt
 A free, automated CA. It verifies domain ownership (not deep identity, just "you control this domain") and issues short-lived (90-day) TLS certificates automatically via the ACME protocol. This is why the whole web moved to HTTPS by default — cert issuance became free and scriptable instead of a costly manual process.
-
+### Blind trust vs Zero trust
+- Blind trust model: once you're inside the network (or once a cert is validated once), you're trusted broadly — like a castle-and-moat: strong perimeter, but if someone gets in, they can move around freely.
+- Zero trust model: "never trust, always verify" — every request, every device, every user is re-authenticated and re-authorized continuously, regardless of whether they're "inside" the network already. No implicit trust just because you're on the same network segment. Modern enterprise security has been shifting hard toward this model.
