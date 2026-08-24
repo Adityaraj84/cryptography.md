@@ -40,6 +40,6 @@ Note the reversal compared to confidentiality:
 
 Asymmetric algorithm based on the difficulty of factoring the product of two very large prime numbers.
 
-Key sizes: 2048-bit or 4096-bit today.\\
-Used for: key exchange, digital signatures, certificates.
+Key sizes: 2048-bit or 4096-bit today.<br>
+Used for: key exchange, digital signatures, certificates.<br>
 Downside: slow, large keys, and vulnerable to quantum computers (Shor's algorithm can break it).
