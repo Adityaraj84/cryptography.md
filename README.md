@@ -75,10 +75,10 @@ There are three main types of random number generators:
 - Fast, software-based — used everywhere in day-to-day computing.
 - Cryptographically secure versions are called CSPRNGs (e.g., used in OpenSSL) — designed so that even if you see part of the output, you can't predict the rest or work backward to the seed.
 - Weakness: if the seed is weak/predictable, everything downstream is broken (this has caused real-world crypto failures).
-  ### 3. QRNG (Quantum Random Number Generator)
-  - Uses quantum phenomena (like photon behavior at a beam splitter, or vacuum fluctuations) as the entropy source.
-  - Considered the most theoretically "true" form of randomness because quantum outcomes are fundamentally probabilistic, not just practically unpredictable.
-  - Increasingly used in high-security key generation, often combined with classical TRNG/PRNG systems.
+### 3. QRNG (Quantum Random Number Generator)
+- Uses quantum phenomena (like photon behavior at a beam splitter, or vacuum fluctuations) as the entropy source.
+- Considered the most theoretically "true" form of randomness because quantum outcomes are fundamentally probabilistic, not just practically unpredictable.
+- Increasingly used in high-security key generation, often combined with classical TRNG/PRNG systems.
 
-  Typical real-world flow: TRNG or QRNG generates high-quality entropy → this becomes (or seeds) a CSPRNG → the CSPRNG expands it efficiently into the actual key material your system uses.
+Typical real-world flow: TRNG or QRNG generates high-quality entropy → this becomes (or seeds) a CSPRNG → the CSPRNG expands it efficiently into the actual key material your system uses.
 
