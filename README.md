@@ -102,4 +102,5 @@ This is the standard format for digital certificates used in PKI (what powers HT
 - Validity period (start/expiry dates)
 - The CA's digital signature over all of the above (this is what makes it verifiable/tamper-proof — ties back to section 2)
 - Serial number, extensions (usage restrictions, alternate domain names, etc.)
-<img width="745" height="433" img src="https://acrobat.adobe.com/id/urn:aaid:sc:AP:17e60007-b525-4dd6-acec-8641d6141441" />
+<img width="745" height="433" img src="<img width="673" height="927" alt="image" src="https://github.com/user-attachments/assets/ed01538b-9a56-4f73-b186-675109a2d121" />
+" />
