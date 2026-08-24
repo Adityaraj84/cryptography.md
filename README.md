@@ -82,8 +82,10 @@ There are three main types of random number generators:
 
 Typical real-world flow: TRNG or QRNG generates high-quality entropy → this becomes (or seeds) a CSPRNG → the CSPRNG expands it efficiently into the actual key material your system uses.
 ## 7. PKI, CA, and Trust Models
-- PKI (Public Key Infrastructure)
+### PKI (Public Key Infrastructure)
 The whole ecosystem of hardware, software, policies, and procedures needed to create, manage, distribute, store, and revoke public key certificates. It's what makes "trusting a stranger's public key" possible at internet scale.
-- CA (Certificate Authority)
+### CA (Certificate Authority)
 A trusted third party that verifies someone's identity and then issues them a digital certificate binding their identity to their public key, signed with the CA's own private key. Your browser trusts a pre-installed list of "root CAs" — everything else builds trust from there in a chain.
+### Let's Encrypt
+A free, automated CA. It verifies domain ownership (not deep identity, just "you control this domain") and issues short-lived (90-day) TLS certificates automatically via the ACME protocol. This is why the whole web moved to HTTPS by default — cert issuance became free and scriptable instead of a costly manual process.
 
