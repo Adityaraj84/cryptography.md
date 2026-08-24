@@ -81,4 +81,9 @@ There are three main types of random number generators:
 - Increasingly used in high-security key generation, often combined with classical TRNG/PRNG systems.
 
 Typical real-world flow: TRNG or QRNG generates high-quality entropy → this becomes (or seeds) a CSPRNG → the CSPRNG expands it efficiently into the actual key material your system uses.
+## 7. PKI, CA, and Trust Models
+- PKI (Public Key Infrastructure)
+The whole ecosystem of hardware, software, policies, and procedures needed to create, manage, distribute, store, and revoke public key certificates. It's what makes "trusting a stranger's public key" possible at internet scale.
+- CA (Certificate Authority)
+A trusted third party that verifies someone's identity and then issues them a digital certificate binding their identity to their public key, signed with the CA's own private key. Your browser trusts a pre-installed list of "root CAs" — everything else builds trust from there in a chain.
 
