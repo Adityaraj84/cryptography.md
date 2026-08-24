@@ -26,12 +26,14 @@ Think of it like a wax seal that only you can produce, but anyone can check.
 4.  Receiver hashes the message themselves, then decrypts the signature using the sender's public key, and compares the two hashes.
 5.  If they match: message wasn't tampered with, AND it really came from the person who owns that private key (because only their private key could have produced a signature that opens correctly with their public key).
 
-This gives you two things at once: integrity (hash) + authentication/non-repudiation (private key signing).
+- This gives you two things at once: integrity (hash) + authentication/non-repudiation (private key signing).
 
 Note the reversal compared to confidentiality:
 
-**Confidentiality**: encrypt with receiver's public key, decrypt with receiver's private key.
-**Authentication/signing**: "encrypt" (sign) with sender's private key, verify with sender's public key.
+- **Confidentiality**: encrypt with receiver's public key, decrypt with receiver's private key.
+
+- **Authentication/signing**: "encrypt" (sign) with sender's private key, verify with sender's public key.
+
 ## 3. Where Cryptography in the OSI Model
 <img width="745" height="433" alt="Screenshot 2026-08-24 151512" src="https://github.com/user-attachments/assets/cb759591-9ec5-4770-9237-7b92b912f4bd" />
 
