@@ -48,3 +48,9 @@ Asymmetric algorithm based on the difficulty of the "elliptic curve discrete log
 Gives the same security as RSA but with much smaller keys (a 256-bit EC key ≈ security of a 3072-bit RSA key). Faster, less power/bandwidth — great for mobile and IoT.<br>
 Used in: ECDSA (signatures), ECDH (key exchange). Bitcoin, TLS 1.3, WhatsApp all use it.<br>
 Still vulnerable to quantum attacks, just like RSA.<br>
+
+## QKD (Quantum Key Distribution)
+- Not really an "algorithm" — it's a physical method of exchanging a symmetric key using quantum properties of photons (e.g., BB84 protocol).
+- The trick: quantum mechanics guarantees that if someone eavesdrops on the photon stream, the act of measuring disturbs the state, and both parties can detect the intrusion.
+- Doesn't rely on math being "hard" (like factoring) — relies on physics itself. This is why it's considered "quantum-safe" even against future quantum computers.
+- Limitation: needs specialized hardware (fiber optic/photon detectors), short range currently, expensive, still maturing.
