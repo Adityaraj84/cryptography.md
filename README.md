@@ -54,3 +54,10 @@ Still vulnerable to quantum attacks, just like RSA.<br>
 - The trick: quantum mechanics guarantees that if someone eavesdrops on the photon stream, the act of measuring disturbs the state, and both parties can detect the intrusion.
 - Doesn't rely on math being "hard" (like factoring) — relies on physics itself. This is why it's considered "quantum-safe" even against future quantum computers.
 - Limitation: needs specialized hardware (fiber optic/photon detectors), short range currently, expensive, still maturing.
+## 5. Key Exchange / Key Sharing
+This solves: "how do two people agree on a shared secret key over an insecure channel, without anyone else figuring it out?"
+- Diffie-Hellman (DH): both sides pick a private random number, do some public math using a shared base/prime, exchange results publicly, then each independently computes the same shared secret — even though an eavesdropper sees the exchange, they can't compute the secret without solving the discrete log problem.
+- ECDH: same idea but using elliptic curves — faster, smaller.
+- RSA key exchange: sender encrypts a randomly generated symmetric key using the receiver's RSA public key.
+- Hybrid systems (like TLS): use asymmetric crypto only to establish the session key, then switch to symmetric (AES) for actual data transfer, because symmetric is much faster for bulk traffic.
+
