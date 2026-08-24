@@ -17,3 +17,18 @@ Not encryption at all — it's a one-way fingerprint function. You put data in, 
 
 Used for: integrity checking, password storage, digital signatures (you hash the message, then sign the hash — signing the whole message directly would be slow).
 Examples: SHA-256, SHA-3, (MD5/SHA-1 are broken, avoid them)
+## 2. Digital Signatures — How Public/Private Keys Actually Work Together
+Think of it like a wax seal that only you can produce, but anyone can check.
+
+1. Sender takes the message, runs it through a hash function → gets a hash.
+2. Sender encrypts that hash with their private key → this encrypted hash is the "digital signature."
+3. Sender sends: message + signature.
+4. Receiver hashes the message themselves, then decrypts the signature using the sender's public key, and compares the two hashes.
+5. If they match: message wasn't tampered with, AND it really came from the person who owns that private key (because only their private key could have produced a signature that opens correctly with their public key).
+
+This gives you two things at once: integrity (hash) + authentication/non-repudiation (private key signing).
+
+Note the reversal compared to confidentiality:
+
+**Confidentiality**: encrypt with receiver's public key, decrypt with receiver's private key.
+**Authentication/signing**: "encrypt" (sign) with sender's private key, verify with sender's public key.
