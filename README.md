@@ -60,4 +60,25 @@ This solves: "how do two people agree on a shared secret key over an insecure ch
 - ECDH: same idea but using elliptic curves — faster, smaller.
 - RSA key exchange: sender encrypts a randomly generated symmetric key using the receiver's RSA public key.
 - Hybrid systems (like TLS): use asymmetric crypto only to establish the session key, then switch to symmetric (AES) for actual data transfer, because symmetric is much faster for bulk traffic.
+## 6. How Are Keys Actually Made? (Seeds & Randomness)
+A cryptographic key is fundamentally just a very large random number. The quality of that randomness is everything — if an attacker can guess or predict your "random" number, the whole system collapses no matter how strong the algorithm is.
+
+Keys are generated starting from a seed — an initial value fed into a random number generator, which then expands it into the actual key material.
+
+There are three main types of random number generators:
+### 1. TRNG (True Random Number Generator)
+- Uses real, physical unpredictable phenomena: thermal noise, radioactive decay timing, atmospheric noise, mouse movement jitter, even camera sensor noise
+- Genuinely non-deterministic — same conditions won't reproduce the same number.
+- Slower and needs special hardware, but this is the gold standard for generating seeds.
+### 2. PRNG (Pseudo-Random Number Generator)
+- A deterministic algorithm that takes a seed and expands it into a long stream of numbers that look random statistically, but are 100% reproducible if you know the seed.
+- Fast, software-based — used everywhere in day-to-day computing.
+- Cryptographically secure versions are called CSPRNGs (e.g., used in OpenSSL) — designed so that even if you see part of the output, you can't predict the rest or work backward to the seed.
+- Weakness: if the seed is weak/predictable, everything downstream is broken (this has caused real-world crypto failures).
+  ### 3. QRNG (Quantum Random Number Generator)
+  - Uses quantum phenomena (like photon behavior at a beam splitter, or vacuum fluctuations) as the entropy source.
+  - Considered the most theoretically "true" form of randomness because quantum outcomes are fundamentally probabilistic, not just practically unpredictable.
+  - Increasingly used in high-security key generation, often combined with classical TRNG/PRNG systems.
+
+  Typical real-world flow: TRNG or QRNG generates high-quality entropy → this becomes (or seeds) a CSPRNG → the CSPRNG expands it efficiently into the actual key material your system uses.
 
